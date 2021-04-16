@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">FirstApp</string>
+    <string name="nom">Nom :</string>
+    <string name="mon_formulaire">Mon Formulaire</string>
+    <string name="prenom">Prenom</string>
+    <string name="button">Button</string>
 </resources>
