@@ -8,11 +8,23 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
+
+    companion object{
+        val LASTNAMEKEY = "lastname"
+        val FIRSTNAMEKEY = "firstname"
+    }
+
+    lateinit var lastname: EditText
+    lateinit var firstname: EditText
+    lateinit var button: Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val button: Button = findViewById(R.id.button)
+        button = findViewById(R.id.button)
+        lastname = findViewById(R.id.editTextTextPersonName)
+        firstname = findViewById(R.id.editTextTextPersonName2)
 
         button.setOnClickListener {
             this.onClick(v = null)
@@ -20,16 +32,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-//        input lastname
-        val lastname: EditText = findViewById(R.id.editTextTextPersonName)
-        val lastnameValue: String = lastname.getText().toString()
-//        input firstname
-        val firstname: EditText = findViewById(R.id.editTextTextPersonName2)
-        val firstnameValue: String = firstname.getText().toString()
-
         val i = Intent(this, MainActivity2::class.java)
-        i.putExtra("lastname", lastnameValue)
-        i.putExtra("firstname", firstnameValue)
+        i.putExtra(LASTNAMEKEY, lastname.getText().toString())
+        i.putExtra(FIRSTNAMEKEY, firstname.getText().toString())
         startActivity(i)
     }
 
