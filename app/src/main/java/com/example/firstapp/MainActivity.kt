@@ -9,3 +9,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 }
+
+class MyButton: OnClickListener {
+    override fun onClick() {
+        setContentView(R.layout.activity_main2)
+    }
+}
