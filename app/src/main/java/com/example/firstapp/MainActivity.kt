@@ -30,11 +30,20 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         val i = Intent(this, MainActivity2::class.java)
-        if ((binding.editTextTextPersonName.text.toString().trimmedLength() <= 0) || (binding.editTextTextPersonName2.text.toString().trimmedLength() <= 0)) {
-            binding.errorMessage.text = "Tous les champs doivent être rempli"
+
+        binding.labelLastname.error = null
+        binding.labelFirstname.error = null
+
+        if ((binding.lastnameValue.text.toString().trimmedLength() <= 0) && (binding.firstnameValue.text.toString().trimmedLength() <= 0)) {
+            binding.labelLastname.error = getString(R.string.emptyLastname)
+            binding.labelFirstname.error = getString(R.string.emptyFirstname)
+        } else if (binding.lastnameValue.text.toString().trimmedLength() <= 0) {
+            binding.labelLastname.error = getString(R.string.emptyLastname)
+        } else if (binding.firstnameValue.text.toString().trimmedLength() <= 0) {
+            binding.labelFirstname.error = getString(R.string.emptyFirstname)
         } else {
-            i.putExtra(LASTNAMEKEY, binding.editTextTextPersonName.text.toString())
-            i.putExtra(FIRSTNAMEKEY, binding.editTextTextPersonName2.text.toString())
+            i.putExtra(LASTNAMEKEY, binding.lastnameValue.text.toString())
+            i.putExtra(FIRSTNAMEKEY, binding.firstnameValue.text.toString())
             startActivity(i)
         }
     }
