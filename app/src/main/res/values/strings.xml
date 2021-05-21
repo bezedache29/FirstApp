@@ -17,4 +17,6 @@
     <string name="lestname">Nom</string>
     <string name="emptyLastname">Renseignez votre nom</string>
     <string name="emptyFirstname">Renseignez votre prénom</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
